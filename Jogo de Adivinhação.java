@@ -7,47 +7,46 @@ import java.util.Scanner;
 
 public class exercicios {
 public static void main(String[] args) {
+
 Scanner entrada = new Scanner(System.in);
 Random aleatorio = new Random();
 int numeroEscolhido = aleatorio.nextInt(100 + 1) ;
-int numero = 0 ;
-int tentativas = 10;
+int numeroDigitado = 0 ;
+int tentativas = 9;
 
 
 
-while (numero >= 0 || numero <= 100 ) {
+while (numeroDigitado >= 0 && numeroDigitado <= 100 ) {
 			System.out.println("Insira um número");
-			numero = entrada.nextInt();
+			numeroDigitado = entrada.nextInt();
 			
-			if (numero < 0 || numero > 100) {
+			if (numeroDigitado == numeroEscolhido) {
+				System.out.println("Você acertou sobrando " + (tentativas--) + " tentativas");
+			    break;
+             }	
+			
+			else if (numeroDigitado < 0 || numeroDigitado > 100) {
 				System.out.println("Numero inválido");
 			break;
 			}
-			if (numero == numeroEscolhido) {
-				System.out.println("Você acertou.");
-			System.out.println("Fim");
-				break;
-			} 
-			
-			
-			numero += tentativas;
-			tentativas--;
-			
-			if (tentativas <= 0) {
+		
+			if (tentativas < 1) {
 				System.out.println("Acabou as tentativas.");
 				break;
 			}
 			System.out.println("Faltam " + tentativas + " tentativas");
-            
-					
-			if (numeroEscolhido > numero) {
-				System.out.println("É menor que o numero sorteado\n");
+			tentativas--;
+			 
+			
+			
+			 if (numeroDigitado > numeroEscolhido) {
+				System.out.println("É maior que o numero escolhido");
 			}
-             if(numeroEscolhido < numero) {
-            	System.out.println("É maior que o numero sorteado\n");
+			else if(numeroDigitado < numeroEscolhido )  {
+            	System.out.println("É menor que o número escolhido");
                  
             }
-            
+             
             
 } 
 
